@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react'
-import './App.css'
+import './index.css'
 import {Posts} from './components/posts'
+import { Navbar } from './components/navbar'
+import { Header } from './components/header'
+import { Footer } from './components/footer'
 
 function App() {
 
@@ -14,8 +17,11 @@ function App() {
   }, [])
 
   return (
-    <main className="App container max-w-screen-2xl">
-     <Posts data={postData}/>
+    <main className="App bg-neutral-50">
+      <Navbar />
+      <Header />
+      <Posts data={postData}/>
+      <Footer />
     </main>
   );
 }
