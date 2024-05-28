@@ -4,9 +4,17 @@ export const Navbar = () => {
   return (
     <nav id="navbar" className="bg-white flex justify-between items-center py-4 px-6 sticky top-0 shadow-md">
       <div id="navbar-link">
-        <div className="nav-links">nav links go here</div>
+        <div className="nav-links">
+          <ul className="flex gap-4">
+            <li><a href="!">Link</a></li>
+            <li><a href="!">Link</a></li>
+            <li><a href="!">Link</a></li>
+            <li><a href="!">Link</a></li>
+            <li><a href="!">Link</a></li>
+          </ul>
+        </div>
       </div>
-      <div id="navbar-logo">
+      <div id="navbar-logo" className="">
         <img src='/images/logo.svg' alt="logo" id="navbar-logo"/>
       </div>
 
