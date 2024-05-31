@@ -1,26 +1,32 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
+import { PostsContext } from './context/postsContext'
 import './index.css'
-import {Posts} from './components/posts'
 import { Navbar } from './components/navbar'
-import { Header } from './components/header'
 import { Footer } from './components/footer'
+import { Home } from './pages/Home'
 
 function App() {
 
-  const [postData, setPostData] = useState([])
+  const [postsData, setPostsData] = useState([])
+  const [featured] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/posts')
-    .then(res => res.json())
-    .then(data => setPostData(data))
+    const getPosts = async () => {
+      const res = await fetch('http://localhost:3001/api/posts')
+      const posts = await res.json()
+      return setPostsData(posts)
+    }
+    getPosts()
     .catch(err => console.log(err))
   }, [])
+  
 
   return (
     <main className="App bg-neutral-50">
-      <Navbar />
-      <Header />
-      <Posts data={postData}/>
+      <PostsContext.Provider value={{featured, postsData, setPostsData}}>
+        <Navbar />
+        <Home />
+      </PostsContext.Provider>
       <Footer />
     </main>
   );

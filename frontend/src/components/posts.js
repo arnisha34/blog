@@ -1,22 +1,26 @@
 import { useState } from "react"
 import { Pagination } from "./pagination"
+import { useContext } from "react"
+import { PostsContext } from "../context/postsContext"
 
-export const Posts = ({data}) => {
+export const Posts = () => {
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(12)
+  const ctx = useContext(PostsContext)
 
-  const lastPostsIndex = currentPage * postsPerPage
-  const firstPostsIndex = lastPostsIndex - postsPerPage
-  const currPosts = data.slice(firstPostsIndex, lastPostsIndex)
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const [postsPerPage] = useState(12)
+
+  // const lastPostsIndex = currentPage * postsPerPage
+  // const firstPostsIndex = lastPostsIndex - postsPerPage
+  // const currPosts = ctx.postsData.slice(firstPostsIndex, lastPostsIndex)
   
-  const paginate = (pageNum) => setCurrentPage(pageNum)
+  // const paginate = (pageNum) => setCurrentPage(pageNum)
 
   return (
     <section id="posts" className="justify-between px-6 gap-8 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-      {currPosts.map(post => {
+      {ctx.postsData.map(post => {
         return(
-          <article key={post._id} className="post-card flex-1">
+          <article key={post._id} id={post._id} className="post-card flex-1">
             <div className="post_img">
               <img src={post.img} alt="post" className="w-full min-h-[300px] max-h-[300px] object-cover object-center rounded-lg"/>
             </div>
@@ -29,8 +33,7 @@ export const Posts = ({data}) => {
           </article>
         )
       })}
-
-      <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/>
+      {/* <Pagination postsPerPage={postsPerPage} totalPosts={ctx.postsData.length} paginate={paginate}/> */}
     </section>
   )
 }
