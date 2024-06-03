@@ -30,7 +30,7 @@ router.get('/posts', async (req, res) => {
 })
 
 //show post by id
-router.get('/getOne/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try{
     const data = await Post.findById(req.params.id)
     res.json(data)

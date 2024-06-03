@@ -1,5 +1,6 @@
 import { Search } from "./search"
 import logo from '../images/logo.svg'
+import { Link } from "react-router-dom"
 
 export const Navbar = () => {
   
@@ -8,16 +9,15 @@ export const Navbar = () => {
       <div id="navbar-link">
         <div className="nav-links">
           <ul className="flex gap-4">
-            <li><a href="!">Link</a></li>
-            <li><a href="!">Link</a></li>
-            <li><a href="!">Link</a></li>
-            <li><a href="!">Link</a></li>
-            <li><a href="!">Link</a></li>
+            <Link to="!">Link</Link>
+            <Link to="!">Link</Link>
+            <Link to="!">Link</Link>
+            <Link to="!">Link</Link>
           </ul>
         </div>
       </div>
       <div id="navbar-logo" className="max-w-[70px]">
-        <img src={logo} alt="logo" id="navbar-logo"/>
+        <Link to="/"><img src={logo} alt="logo" id="navbar-logo"/></Link>
       </div>
       <Search />
     </nav>

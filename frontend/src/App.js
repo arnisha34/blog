@@ -3,7 +3,7 @@ import { PostsContext } from './context/postsContext'
 import './index.css'
 import { Navbar } from './components/navbar'
 import { Footer } from './components/footer'
-import { Home } from './pages/Home'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
     <main className="App bg-neutral-50">
       <PostsContext.Provider value={{featured, postsData, setPostsData}}>
         <Navbar />
-        <Home />
+        <Outlet/>
       </PostsContext.Provider>
       <Footer />
     </main>
