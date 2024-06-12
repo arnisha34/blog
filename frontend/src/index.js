@@ -10,7 +10,7 @@ import {
 
 import { Home } from './pages/Home';
 import { Post } from './components/post';
-
+import { Auth } from './pages/Auth';
 
 const router = createBrowserRouter([
   {
@@ -20,12 +20,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/post/:postId",
         element: <Post />
-      }
+      },
+      {
+        path: "/login",
+        element: <Auth />
+      },
     ]
   },
 ]);

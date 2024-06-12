@@ -29,7 +29,7 @@ export const Posts = () => {
               <div className="post_details p-4">
                 <span className="post_date text-xs">{post?.date}</span>
                 <h3 className="font-bold title text-xl my-2">{post?.title}</h3>
-                <p className="description text-sm">{post?.text}</p>
+                <p className="description text-sm">{post?.text.slice(0,50) + '...'}</p>
                 <span className="post_tags flex text-xs my-3">#{post?.tags.join(' #')}</span>
               </div>
             </article>

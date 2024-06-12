@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import { PostsContext } from '../context/postsContext'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 export const Search = () => {
+
+  const [active, setActive] = useState(false)
 
   const ctx = useContext(PostsContext)
 
@@ -15,10 +18,11 @@ export const Search = () => {
       ctx.setPostsData(searchResults)
     }
   }
-
+  
   return (
-    <div id="navbar-search">
-      <div id="search" className="max-w-[230px] justify-end">
+    <div id="navbar-search" className='flex items-center'>
+      <MagnifyingGlassIcon className={`size-6 ${active === true ? "hidden":"block"} cursor-pointer`} onClick={() => setActive(!active)}/>
+      <div id="search" className={`${active === false ? "hidden":"block"}`} onMouseLeave={() => setActive(false)}>
         <label className="relative block">
           <span className="sr-only">Search</span>
           <span className="absolute inset-y-0 left-0 flex items-center pl-2">
